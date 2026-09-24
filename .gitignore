@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Secrets — only the .env.example files are committed
+.env
+.env.*
+!.env.example
+
+# Logs & editor files
+*.log
+.DS_Store
+.vscode/
+.idea/

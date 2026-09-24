@@ -1,0 +1,94 @@
+/*
+  Todo Notebook palette — every colour in the app lives here.
+  Change these values to re-skin the whole project.
+*/
+:root {
+  /* Paper & ink (light) */
+  --bg: #F6F1E7;            /* desk / page background */
+  --surface: #FFFDF8;       /* notebook page, cards */
+  --surface-note: #FFF3BF;  /* sticky note panel */
+  --text: #2B2A33;          /* main ink */
+  --text-muted: #5B5766;    /* secondary text */
+  --accent: #1F4FD1;        /* ink blue: links, focus, checks */
+  --accent-strong: #163A9E; /* ink blue hover */
+  --highlight: #FFD84D;     /* sticky-note yellow, glows */
+  --marker: #B93A10;        /* red pen: handwritten notes, errors */
+  --btn-bg: #1F4FD1;
+  --btn-text: #FFFFFF;
+  --logo-check: #1F4FD1;   /* tick in the logo (always on yellow) */
+  --control-border: #2B2A33; /* borders of inputs & checkboxes */
+  --btn-soft-bg: #FFFDF8;
+  --btn-soft-text: #2B2A33;
+  --outline: #2B2A33;       /* hard paper-cut outlines & shadows */
+  --rule: #D6DDF0;          /* ruled lines on the page */
+  --margin-line: #F2A7A0;   /* red margin line */
+  --divider: #E4DCCB;
+
+  /* Category tabs */
+  --cat-work: #2F5FD9;
+  --cat-home: #D9731F;
+  --cat-study: #7A55D9;
+  --cat-errands: #23875B;
+
+  /* Live background */
+  --note-1: #FFD84D;
+  --note-2: #FFB3A1;
+  --note-3: #A8C5FF;
+  --note-opacity: 0.6;
+  --glow-1: #FFD84D;
+  --glow-2: #1F4FD1;
+  --glow-opacity: 0.35;
+  --dot: #CFC6B2;
+
+  /* Shape & type */
+  --radius: 6px;
+  --radius-wobbly: 6px 14px 8px 16px;
+  --shadow-hard: 3px 3px 0 var(--outline);
+  --shadow-hard-lg: 6px 6px 0 var(--outline);
+  --shadow-soft: 0 12px 30px -12px color-mix(in srgb, var(--outline) 35%, transparent);
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-hand: 'Caveat', 'Comic Sans MS', cursive;
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color-scheme: light;
+}
+
+/* Night desk: same paper & ink, under a warm lamp */
+:root[data-theme='dark'] {
+  --bg: #1C1B24;
+  --surface: #262532;
+  --surface-note: #3A3425;
+  --text: #EDE7DA;
+  --text-muted: #B8B1C4;
+  --accent: #8FB0FF;
+  --accent-strong: #B5CBFF;
+  --highlight: #FFD84D;
+  --marker: #FF9A76;
+  --btn-bg: #FFD84D;
+  --btn-text: #1C1B24;
+  --logo-check: #1F4FD1;
+  --control-border: #9C95AB;
+  --btn-soft-bg: #2F2D3D;
+  --btn-soft-text: #EDE7DA;
+  --outline: #0D0C12;
+  --rule: #34334A;
+  --margin-line: #6B3A44;
+  --divider: #3A384A;
+
+  --cat-work: #7FA2FF;
+  --cat-home: #F2A15A;
+  --cat-study: #B79CFF;
+  --cat-errands: #5FCB97;
+
+  --note-1: #FFD84D;
+  --note-2: #FF9F8A;
+  --note-3: #8FB0FF;
+  --note-opacity: 0.35;
+  --glow-1: #FFC94D;
+  --glow-2: #5C7CFF;
+  --glow-opacity: 0.5;
+  --dot: #34324A;
+
+  color-scheme: dark;
+}
