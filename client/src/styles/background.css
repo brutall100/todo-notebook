@@ -1,0 +1,116 @@
+/* Live background: a desk with a lamp glow and sticky notes drifting down */
+.desk {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background-image: radial-gradient(var(--dot) 1.2px, transparent 1.3px);
+  background-size: 26px 26px;
+}
+
+.desk__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: var(--glow-opacity);
+  will-change: transform;
+}
+
+.desk__glow--lamp {
+  width: 46vmax;
+  height: 46vmax;
+  top: -18vmax;
+  right: -12vmax;
+  background: var(--glow-1);
+  animation: glow-drift 26s ease-in-out infinite alternate;
+}
+
+.desk__glow--ink {
+  width: 38vmax;
+  height: 38vmax;
+  bottom: -20vmax;
+  left: -14vmax;
+  background: var(--glow-2);
+  opacity: calc(var(--glow-opacity) * 0.6);
+  animation: glow-drift 34s ease-in-out -12s infinite alternate-reverse;
+}
+
+@keyframes glow-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-6vmax, 5vmax, 0) scale(1.12);
+  }
+}
+
+/* One falling note = outer (falls + spins) and inner (sways side to side) */
+.note-fall {
+  position: absolute;
+  top: 0;
+  left: var(--x);
+  width: var(--size);
+  height: var(--size);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: note-fall var(--duration) linear var(--delay) infinite;
+}
+
+.note-fall__paper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--color);
+  opacity: var(--note-opacity);
+  border-radius: 2px 2px 10px 2px;
+  box-shadow: 2px 3px 0 color-mix(in srgb, var(--outline) 18%, transparent);
+  animation: note-sway var(--sway-duration) ease-in-out infinite alternate;
+}
+
+/* a little strip of "tape" on some notes */
+.note-fall__paper::before {
+  content: '';
+  position: absolute;
+  top: -12%;
+  left: 30%;
+  width: 40%;
+  height: 22%;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  transform: rotate(-4deg);
+  opacity: var(--tape, 0);
+}
+
+@keyframes note-fall {
+  0% {
+    transform: translate3d(0, -20vh, 0) rotate(var(--spin-from));
+    opacity: 0;
+  }
+  8%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift), 115vh, 0) rotate(var(--spin-to));
+    opacity: 0;
+  }
+}
+
+@keyframes note-sway {
+  from {
+    transform: translateX(calc(var(--sway) * -1)) rotate(-6deg);
+  }
+  to {
+    transform: translateX(var(--sway)) rotate(6deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .note-fall {
+    display: none;
+  }
+
+  .desk__glow {
+    animation: none;
+  }
+}
